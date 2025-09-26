@@ -1,25 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
-    <title>ZAAA ONE PIECEEEEEE</title>
+    <meta name="viewport" content="wdith=device-width, intial-scale=1.0">
+    <meta name="description" content="Really useful website">
+    <title>Khmer OCR</title>
     <style>
-        figcaption {
+        body {
+            background-color: rgb(19, 23, 70);
+        }
+
+        .textbox {
+            border: 2px solid white;
+            padding: 2px;
+            text-align: center;
+            width: fit-content;
+            margin: auto;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .SirBorder {
+            display: block;
+            border: 2px solid rgb(255, 255, 255);
+            margin: 50px auto 50px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .Sir {
+            display: block;
+            width: 250px;
+            border-radius: 100%;
+
+        }
+
+        .StarWrapper {
+            position: absolute;
+            top: -20px;
+            left: 0%;
+            transform: translateX(-60%);
+        }
+
+
+        .Star path {
+            stroke: rgb(255, 255, 255);
+            stroke-width: 2;
+        }
+
+        .Star {
+            width: 40px;
+            height: 40px;
+            transform: rotate(45Deg);
+        }
+
+        .text {
+            color: white;
             font-size: 20px;
-            font-weight: bold;
+            font-family: monospace;
+            text-align: left;
+            margin-left: 10px;
+
+            em {
+                color: rgb(255, 251, 6);
+                font-style: normal;
+                font-weight: bold;
+            }
+        }
+
+        a {
+            color: rgb(0, 102, 255);
+            text-decoration: none;
+            font-family: monospace;
+            font-size: large;
+        }
+
+        a:hover {
+            color: rgb(255, 0, 0);
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-    <h1>THE ONEEE PIECEEEEEE</h1>
-    <h1>THE ONEE PIECEE</h1>
-    <h2>ISSSSS</h2>
-    <h1>REALLLLLL!!!</h1>
-    <figure>
-        <img src="THE ONE PIECEEEE.jpg" width="500">
-        <figcaption>guys this is cool right??</figcaption>
-    </figure>
+    <div class="SirBorder">
+        <img src="images/CEO.jpg" alt="The Puppeteer" class="Sir">
+    </div>
+    <div class="textbox">
+        <p class="text">Hello I am <em>Bunchhour</em>.</p>
+        <div class="StarWrapper">
+            <svg class="Star" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+                <defs>
+                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fdd835" />
+                        <stop offset="100%" stop-color="#ff9800" />
+                    </linearGradient>
+                </defs>
+                <path fill="url(#goldGradient)"
+                    d="m68.05 7.23l13.46 30.7a7.05 7.05 0 0 0 5.82 4.19l32.79 2.94c3.71.54 5.19 5.09 2.5 7.71l-24.7 20.75c-2 1.68-2.91 4.32-2.36 6.87l7.18 33.61c.63 3.69-3.24 6.51-6.56 4.76L67.56 102a7.03 7.03 0 0 0-7.12 0l-28.62 16.75c-3.31 1.74-7.19-1.07-6.56-4.76l7.18-33.61c.54-2.55-.36-5.19-2.36-6.87L5.37 52.78c-2.68-2.61-1.2-7.17 2.5-7.71l32.79-2.94a7.05 7.05 0 0 0 5.82-4.19l13.46-30.7c1.67-3.36 6.45-3.36 8.11-.01" />
+            </svg>
+        </div>
+        <p class="text">The Hardest Working <em>Camtechian</em>.</p>
+        <a href="https://youtu.be/dQw4w9WgXcQ?si=lyrS8T1cCtDoEW42" target="_blank">My Facebook Account</a>
+    </div>
 </body>
+
 </html>
