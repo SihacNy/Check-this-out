@@ -61,7 +61,8 @@
             border: 2px solid white;
             padding: 2px;
             text-align: center;
-            width: fit-content;
+            width: 90%;
+            max-width: 300px;
             margin: 50px auto;
             position: relative;
             padding-bottom: 20px;
@@ -160,6 +161,7 @@
             const gif = document.body;
 
             if (!bunchhourStatus) {
+                img.style.pointerEvents = "none";
                 box.style.display = "block";
                 box2.style.display = "block";
                 box.style.animation = "FAdein 5s ease forwards";
@@ -179,6 +181,7 @@
                 setTimeout(() => {
                     box.style.display = "none";
                     box2.style.display = "none";
+                    img.style.pointerEvents = "auto";
                 }, 10000)
 
                 motivation.pause();
