@@ -8,11 +8,11 @@
     <title>Khmer OCR</title>
     <style>
         html,
-
         body {
             height: 100%;
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
 
         body {
@@ -29,6 +29,16 @@
 
             to {
                 opacity: 1;
+            }
+        }
+
+        @keyframes FAdeout {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
             }
         }
 
@@ -83,10 +93,11 @@
             color: yellow;
             border: 2px solid white;
             padding: 10px;
-            transition: phase 0.5s forwards;
+            transition: ease-out 0.1s;
         }
 
-        .Contact:hover {
+        .Contact:hover,
+        .Contact:active {
             text-decoration: underline;
             transform: scale(1.1);
 
@@ -111,7 +122,8 @@
             transition: transform 0.1s ease;
         }
 
-        .muteIcon:hover {
+        .muteIcon:hover,
+        .muteIcon:active {
             transform: scale(1.8);
 
         }
@@ -123,7 +135,7 @@
         <img src="Images/Sir.png" alt="The Puppeteer" class="Sir" id="Sir" onclick="bunchhourMotivation()">
     </div>
     <audio id="bcmusic" src="Sounds/bcsong.mp3"></audio>
-
+    <audio id="no" src="Sounds/no.mp3"></audio>
     <div class="rectangle" id="rectangle">
         <p class="text">Hello I am <em>Bunchhour</em>.</p>
         <p class="text">The Hardest Working <em>Camtechian</em>.</p>
@@ -137,25 +149,47 @@
     </div>
 
     <script>
+        let bunchhourStatus = false;
+
         function bunchhourMotivation() {
             const motivation = document.getElementById("bcmusic")
+            const noo = document.getElementById("no")
             const box = document.getElementById("rectangle");
             const box2 = document.getElementById("rectangle2")
             const img = document.getElementById("Sir");
             const gif = document.body;
 
-            box.style.display = "block";
-            box.style.animation = "FAdein 5s ease forwards";
-            box2.style.animation = "FAdein 5s ease forwards";
-            gif.style.backgroundImage = "url('Images/Background.gif')"
-            motivation.loop = true;
-            motivation.play();
-            img.onclick = null;
-            img.style.cursor = "default";
+            if (!bunchhourStatus) {
+                box.style.display = "block";
+                box2.style.display = "block";
+                box.style.animation = "FAdein 5s ease forwards";
+                box2.style.animation = "FAdein 5s ease forwards";
+                gif.style.backgroundImage = "url('Images/Background.gif')"
+
+                motivation.loop = true;
+                motivation.play();
+                img.style.cursor = "pointer";
+                bunchhourStatus = true;
+            } else {
+                no.play();
+                box.style.animation = "FAdeout 10s ease forwards";
+                box2.style.animation = "FAdeout 10s ease forwards";
+                gif.style.backgroundImage = "url('Images/Background.png')"
+
+                setTimeout(() => {
+                    box.style.display = "none";
+                    box2.style.display = "none";
+                }, 10000)
+
+                motivation.pause();
+                motivation.currentTime = 0;
+                bunchhourStatus = false;
+            }
         }
         function muteMusic() {
             const motivation = document.getElementById("bcmusic");
             const icon = document.getElementById("music");
+
 
             if (motivation.muted) {
                 motivation.muted = false;
@@ -167,8 +201,8 @@
 
             }
 
-
         }
+
 
     </script>
 </body>
