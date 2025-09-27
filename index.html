@@ -161,7 +161,6 @@
             const gif = document.body;
 
             if (!bunchhourStatus) {
-                img.style.pointerEvents = "none";
                 box.style.display = "block";
                 box2.style.display = "block";
                 box.style.animation = "FAdein 5s ease forwards";
@@ -173,6 +172,7 @@
                 img.style.cursor = "pointer";
                 bunchhourStatus = true;
             } else {
+                img.style.pointerEvents = "none";
                 no.play();
                 box.style.animation = "FAdeout 10s ease forwards";
                 box2.style.animation = "FAdeout 10s ease forwards";
