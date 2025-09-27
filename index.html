@@ -3,15 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Really useful website">
     <title>Khmer OCR</title>
     <style>
+        html,
+
         body {
-            background-color: rgb(19, 23, 70);
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
-        .textbox {
+        body {
+            background-image: url('Images/Background.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        @keyframes FAdein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .rectangle {
+            display: none;
             border: 2px solid white;
             padding: 2px;
             text-align: center;
@@ -19,95 +41,136 @@
             margin: auto;
             position: relative;
             padding-bottom: 20px;
+            background-color: black;
+            opacity: 0;
+
         }
 
-        .SirBorder {
+        .rectangle2 {
             display: block;
-            border: 2px solid rgb(255, 255, 255);
-            margin: 50px auto 50px;
+            border: 2px solid white;
+            padding: 2px;
+            text-align: center;
+            width: fit-content;
+            margin: 50px auto;
+            position: relative;
+            padding-bottom: 20px;
+            background-color: black;
+            opacity: 0;
+
+        }
+
+
+        .SirHolder {
+            display: block;
+            margin: 50px auto;
             width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            overflow: hidden;
+            height: auto;
         }
 
         .Sir {
             display: block;
             width: 250px;
-            border-radius: 100%;
+            cursor: pointer;
 
         }
 
-        .StarWrapper {
-            position: absolute;
-            top: -20px;
-            left: 0%;
-            transform: translateX(-60%);
+        .Contact {
+            display: inline-block;
+            text-decoration: none;
+            font-family: monospace;
+            font-weight: bolder;
+            color: yellow;
+            border: 2px solid white;
+            padding: 10px;
+            transition: phase 0.5s forwards;
         }
 
+        .Contact:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
 
-        .Star path {
-            stroke: rgb(255, 255, 255);
-            stroke-width: 2;
-        }
-
-        .Star {
-            width: 40px;
-            height: 40px;
-            transform: rotate(45Deg);
         }
 
         .text {
             color: white;
-            font-size: 20px;
+            font-size: 17px;
             font-family: monospace;
             text-align: left;
             margin-left: 10px;
-
-            em {
-                color: rgb(255, 251, 6);
-                font-style: normal;
-                font-weight: bold;
-            }
         }
 
-        a {
-            color: rgb(0, 102, 255);
-            text-decoration: none;
-            font-family: monospace;
-            font-size: large;
+        em {
+            color: rgb(255, 251, 6);
+            font-style: normal;
+            font-weight: bold;
         }
 
-        a:hover {
-            color: rgb(255, 0, 0);
-            text-decoration: underline;
+        .muteIcon {
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .muteIcon:hover {
+            transform: scale(1.8);
+
         }
     </style>
 </head>
 
 <body>
-    <div class="SirBorder">
-        <img src="Images/CEO.jpg" alt="The Puppeteer" class="Sir">
+    <div class="SirHolder">
+        <img src="Images/Sir.png" alt="The Puppeteer" class="Sir" id="Sir" onclick="bunchhourMotivation()">
     </div>
-    <div class="textbox">
+    <audio id="bcmusic" src="Sounds/bcsong.mp3"></audio>
+
+    <div class="rectangle" id="rectangle">
         <p class="text">Hello I am <em>Bunchhour</em>.</p>
-        <div class="StarWrapper">
-            <svg class="Star" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-                <defs>
-                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#fdd835" />
-                        <stop offset="100%" stop-color="#ff9800" />
-                    </linearGradient>
-                </defs>
-                <path fill="url(#goldGradient)"
-                    d="m68.05 7.23l13.46 30.7a7.05 7.05 0 0 0 5.82 4.19l32.79 2.94c3.71.54 5.19 5.09 2.5 7.71l-24.7 20.75c-2 1.68-2.91 4.32-2.36 6.87l7.18 33.61c.63 3.69-3.24 6.51-6.56 4.76L67.56 102a7.03 7.03 0 0 0-7.12 0l-28.62 16.75c-3.31 1.74-7.19-1.07-6.56-4.76l7.18-33.61c.54-2.55-.36-5.19-2.36-6.87L5.37 52.78c-2.68-2.61-1.2-7.17 2.5-7.71l32.79-2.94a7.05 7.05 0 0 0 5.82-4.19l13.46-30.7c1.67-3.36 6.45-3.36 8.11-.01" />
-            </svg>
-        </div>
         <p class="text">The Hardest Working <em>Camtechian</em>.</p>
-        <a href="https://youtu.be/dQw4w9WgXcQ?si=lyrS8T1cCtDoEW42" target="_blank">My Facebook Account</a>
+        <img src="Images/Icons/mutev2.svg" alt="mute icons" class="muteIcon" id="music" onclick="muteMusic()">
     </div>
+
+    <div class="rectangle2" id="rectangle2">
+        <p class="text">The <em>CEO</em> of Khmer OCR.</p>
+        <p class="text">Also the one behind the <em>AI work</em>.</p>
+        <a href="https://youtu.be/UIwBcXV29aA?si=G6d0beVLTZpfGrMv" target="_blank" class="Contact">CONTACT ME!</a>
+    </div>
+
+    <script>
+        function bunchhourMotivation() {
+            const motivation = document.getElementById("bcmusic")
+            const box = document.getElementById("rectangle");
+            const box2 = document.getElementById("rectangle2")
+            const img = document.getElementById("Sir");
+            const gif = document.body;
+
+            box.style.display = "block";
+            box.style.animation = "FAdein 5s ease forwards";
+            box2.style.animation = "FAdein 5s ease forwards";
+            gif.style.backgroundImage = "url('Images/Background.gif')"
+            motivation.loop = true;
+            motivation.play();
+            img.onclick = null;
+            img.style.cursor = "default";
+        }
+        function muteMusic() {
+            const motivation = document.getElementById("bcmusic");
+            const icon = document.getElementById("music");
+
+            if (motivation.muted) {
+                motivation.muted = false;
+                icon.src = "Images/Icons/mutev2.svg";
+            } else {
+                motivation.muted = true;
+                icon.src = "Images/Icons/mute.svg";
+
+
+            }
+
+
+        }
+
+    </script>
 </body>
 
 </html>
-
-
