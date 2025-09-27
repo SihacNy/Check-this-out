@@ -99,8 +99,7 @@
             transition: ease-out 0.1s;
         }
 
-        .Contact:hover,
-        .Contact:active {
+        .Contact:hover {
             text-decoration: underline;
             transform: scale(1.1);
 
@@ -125,10 +124,34 @@
             transition: transform 0.1s ease;
         }
 
-        .muteIcon:hover,
-        .muteIcon:active {
-            transform: scale(1.8);
 
+        /* for Desktop  */
+        @media (hover: hover) and (pointer: fine) {
+            .Contact:hover {
+                transform: scale(1.1);
+                width: auto;
+                text-decoration: underline;
+            }
+
+            .muteIcon:hover {
+                transform: scale(1.8);
+                width: auto;
+            }
+
+        }
+
+        /* Mobile NO hover */
+        @media (hover: none) and (pointer: coarse) {
+
+            .Contact {
+                transform: none;
+                width: auto;
+            }
+
+            .muteIcon {
+                transform: none;
+                width: 40px;
+            }
         }
     </style>
 </head>
@@ -207,7 +230,6 @@
             }
 
         }
-
 
     </script>
 </body>
