@@ -176,6 +176,7 @@
 
     <script>
         let bunchhourStatus = false;
+        let userMuted = false;
 
         function bunchhourMotivation() {
             const motivation = document.getElementById("bcmusic")
@@ -198,7 +199,7 @@
                 bunchhourStatus = true;
             } else {
                 img.style.pointerEvents = "none";
-                no.play();
+                noo.play();
                 box.style.animation = "FAdeout 10s ease forwards";
                 box2.style.animation = "FAdeout 10s ease forwards";
                 gif.style.backgroundImage = "url('Images/Background.png')"
@@ -220,15 +221,32 @@
 
 
             if (motivation.muted) {
+                userMuted = false;
                 motivation.muted = false;
                 icon.src = "Images/Icons/mutev2.svg";
             } else {
+                userMuted = true;
                 motivation.muted = true;
                 icon.src = "Images/Icons/mute.svg";
 
 
             }
 
+        }
+
+        if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            document.addEventListener("visibilitychange", () => {
+                const motivation = document.getElementById("bcmusic");
+
+                if (!document.hidden) {
+                    // Only resume if NOT muted by user
+                    if (!userMuted) {
+                        motivation.play().catch(() => {
+                            console.log("User gesture needed to restart music on mobile.");
+                        });
+                    }
+                }
+            });
         }
 
     </script>
